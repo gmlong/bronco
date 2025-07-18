@@ -1,4 +1,4 @@
-# AAPL锚定ERC20代币项目结构
+# AAPLUSDT 锚定ERC20代币项目结构
 
 **AAPL 股票锚定 ERC20 代币 MyToken**在 **BNB 测试网**部署项目的**合约开发技术文档**与**项目架构设计方案**
 ---
@@ -7,7 +7,7 @@
 
 ## 🎯 项目目标
 
-发行一个锚定 AAPL 股票价格的 ERC20 可升级代币 MyToken（例如命名为 AAPLx），部署在 BNB 测试网，具备基本交易能力、灵活权限控制、可升级结构以及与 Chainlink 集成的外部价格获取能力。
+发行一个锚定 AAPLUSDT 股票价格的 ERC20 可升级代币 MyToken（例如命名为 AAPLUSDT），部署在 BNB 测试网，具备基本交易能力、灵活权限控制、可升级结构以及与 Chainlink 集成的外部价格获取能力。
 
 ---
 
@@ -29,11 +29,11 @@
 ## 🏗️ 项目架构总览
 
 ```
-aaplx-project/
+aaplusdt-project/
 ├── contracts/
-│   ├── AAPLxToken.sol           // 主逻辑合约（ERC20 + 黑白名单 + 存/取功能）
+│   ├── AAPLToken.sol           // 主逻辑合约（ERC20 + 黑白名单 + 存/取功能）
 │   ├── USDTVault.sol           // USDT 白名单提款合约
-│   ├── AAPLxProxy.sol          // ERC1967 代理合约
+│   ├── AAPLProxy.sol          // ERC1967 代理合约
 │   ├── ProxyAdmin.sol          // 升级控制合约
 │   └── PriceFeed.sol           // Chainlink 喂价模块
 ├── scripts/
@@ -48,7 +48,7 @@ aaplx-project/
 
 ## 🧩 合约模块说明
 
-### 1. `AAPLxToken.sol` – 主逻辑合约（可升级）
+### 1. `AAPLToken.sol` – 主逻辑合约（可升级）
 
 * **继承自：**
 
@@ -63,8 +63,8 @@ aaplx-project/
   * ✅ ERC20 标准接口（transfer、approve、mint、burn、burnFrom等）
   * ✅ 可暂停/取消暂停/查看暂停状态合约交易（pause/unpause/paused）
   * ✅ 黑名单机制：限制被列入地址的转账、购买、赎回等行为
-  * ✅ 存入（deposit）函数：用 USDT 购买 AAPLx，调用时读取 Chainlink 最新价格（成功则后端调用mint函数给到购买用户）
-  * ✅ 赎回（redeem）函数：用 AAPLx 赎回 USDT（成功则后端调用withdrawUSDT函数将USDT发送给赎回用户）
+  * ✅ 存入（deposit）函数：用 USDT 购买 AAPL，调用时读取 Chainlink 最新价格（成功则后端调用mint函数给到购买用户）
+  * ✅ 赎回（redeem）函数：用 AAPL 赎回 USDT（成功则后端调用withdrawUSDT函数将USDT发送给赎回用户）
   * ✅ emit `Deposit(address, uint256)`、`Redeem(address, uint256)` 事件
   * 订单长时间未成交，需要调用updateOrderStatus函数，将订单状态更新到区块链，emit OrderStatusUpdated(string txHash, string status);
 
@@ -98,10 +98,10 @@ aaplx-project/
 
 ---
 
-### 4. `AAPLxProxy.sol` + `ProxyAdmin.sol` – 可升级部署模块
+### 4. `AAPLProxy.sol` + `ProxyAdmin.sol` – 可升级部署模块
 
 * 遵循 ERC1967 标准结构
-* 所有用户与 `AAPLxProxy` 交互，实际逻辑在 `AAPLxToken`
+* 所有用户与 `AAPLProxy` 交互，实际逻辑在 `AAPLToken`
 * `ProxyAdmin` 合约负责未来的升级控制（通过 `upgradeTo`）
 
 ---
@@ -122,18 +122,18 @@ aaplx-project/
 
 1. 用户向合约调用 `deposit(uint256 usdtAmount)`
 2. 合约读取 Chainlink 的 `AAPL/USD` 价格
-3. 计算用户可获得多少 AAPLx（按实时价格兑换率）
+3. 计算用户可获得多少 AAPL（按实时价格兑换率）
 4. 将用户 USDT 转入 `USDTVault` 中
 5. emit `Deposit(address indexed user, uint256 amount)`
-6. 后端获取日志，然后调用 mint 相应的 AAPLx 代币给用户
+6. 后端获取日志，然后调用 mint 相应的 AAPL 代币给用户
 
 
 ### 📤 赎回（Redeem）
 
-1. 用户调用 `redeem(uint256 aaplxAmount)`
+1. 用户调用 `redeem(uint256 aaplAmount)`
 2. 合约根据当前价格换算出应返回 USDT 数量
 3. 检查用户是否在白名单中
-4. burn 掉用户的 AAPLx 代币
+4. burn 掉用户的 AAPL 代币
 5. emit `Redeem(address indexed user, uint256 amount)`
 6. 后端获取日志，然后调用USDTVault合约withdrawUSDT函数，将对应数量的 USDT 返回用户
 
