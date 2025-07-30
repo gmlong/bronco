@@ -1,0 +1,40 @@
+{
+  "name": "aaveusd",
+  "version": "1.0.0",
+  "description": "Upgradeable AAVEUSD token with Chainlink price oracle and buy/redeem functionality",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy:bsc-testnet": "hardhat run scripts/deploy-bsc.js --network bscTestnet",
+    "deploy:bsc-mainnet": "hardhat run scripts/deploy-bsc.js --network bscMainnet",
+    "upgrade:bsc-testnet": "hardhat run scripts/upgrade-aaveusd.js --network bscTestnet",
+    "upgrade:bsc-mainnet": "hardhat run scripts/upgrade-aaveusd.js --network bscMainnet",
+    "test-price:bsc-testnet": "hardhat run scripts/test-price.js --network bscTestnet",
+    "test-buy-redeem:bsc-testnet": "hardhat run scripts/test-buy-redeem.js --network bscTestnet",
+    "test-new-functions:bsc-testnet": "hardhat run scripts/test-new-functions.js --network bscTestnet",
+    "test-new-functions:bsc-mainnet": "hardhat run scripts/test-new-functions.js --network bscMainnet",
+    "diagnose:bsc-testnet": "hardhat run scripts/diagnose-contract.js --network bscTestnet",
+    "proxy-info:bsc-testnet": "hardhat run scripts/get-proxy-info.js --network bscTestnet",
+    "deployment-info": "node scripts/get-latest-deployment.js",
+    "web": "cd web && python3 -m http.server 8000",
+    "web:serve": "cd web && npx serve .",
+    "web:open": "open web/index.html",
+    "clean": "hardhat clean",
+    "verify:bsc-testnet": "hardhat verify --network bscTestnet",
+    "verify:bsc-mainnet": "hardhat verify --network bscMainnet"
+  },
+  "keywords": ["ethereum", "hardhat", "chainlink", "aave", "defi", "upgradeable", "oracle", "bsc"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "hardhat": "^2.22.18",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/hardhat-upgrades": "^3.6.0",
+    "dotenv": "^16.4.7"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "@openzeppelin/contracts-upgradeable": "^5.1.0",
+    "@chainlink/contracts": "^1.2.0"
+  }
+}

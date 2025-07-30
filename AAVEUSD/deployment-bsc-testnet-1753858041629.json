@@ -1,0 +1,64 @@
+{
+  "network": "BNB Chain Testnet",
+  "chainId": 97,
+  "deployer": "0x09cC52DC70fEB739d1c91Fc07ef9983B7a08D13f",
+  "deployerBalance": "1.21421987",
+  "timestamp": "2025-07-30T06:47:21.629Z",
+  "contracts": {
+    "testUSDT": {
+      "name": "TestUSDT",
+      "address": "0x4faFeBeF2e920379478AF6C05ABC9C39260Ccd91",
+      "symbol": "USDT",
+      "decimals": 6
+    },
+    "aaveusd": {
+      "name": "AAVEUSD",
+      "proxyAddress": "0x33Aa7D36b96F77CDef1cF07bfC33a210e7309de4",
+      "implementationAddress": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+      "symbol": "AAVEUSD",
+      "decimals": 0,
+      "initialSupply": "1000000",
+      "implementations": [
+        {
+          "address": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+          "version": 2,
+          "deployedAt": "2025-07-30T07:30:45.017Z",
+          "changes": [
+            "将 buyTokens 重命名为 deposit",
+            "将 redeemTokens 重命名为 redeem",
+            "在 Deposited 和 Redeemed 事件中添加价格信息",
+            "保持向后兼容的别名函数"
+          ]
+        }
+      ],
+      "lastUpgrade": {
+        "from": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+        "to": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+        "timestamp": "2025-07-30T07:30:45.017Z"
+      }
+    }
+  },
+  "chainlink": {
+    "priceFeedAddress": "0x298619601ebCd58d0b526963Deb2365B485Edc74",
+    "priceFeedType": "AAVE/USD",
+    "network": "BNB Chain Testnet",
+    "simplified": true
+  },
+  "features": {
+    "chainlinkPriceOracle": true,
+    "simplifiedOracle": true,
+    "buyRedeemFunctionality": true,
+    "upgradeableProxy": true,
+    "uupsPattern": true,
+    "zeroDecimals": true
+  },
+  "links": {
+    "testUSDT": "https://testnet.bscscan.com/address/0x4faFeBeF2e920379478AF6C05ABC9C39260Ccd91",
+    "proxyContract": "https://testnet.bscscan.com/address/0x33Aa7D36b96F77CDef1cF07bfC33a210e7309de4",
+    "implementationContract": "https://testnet.bscscan.com/address/0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6"
+  },
+  "verification": {
+    "status": "verified",
+    "timestamp": "2025-07-30T06:48:10.595Z"
+  }
+}

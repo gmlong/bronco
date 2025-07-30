@@ -1,0 +1,57 @@
+{
+  "network": "BNB Chain Testnet",
+  "chainId": 97,
+  "deployer": "0x09cC52DC70fEB739d1c91Fc07ef9983B7a08D13f",
+  "deployerBalance": "1.8",
+  "timestamp": "2025-07-29T07:02:00.321Z",
+  "contracts": {
+    "TestUSDT": {
+      "address": "0x065D53A41247690fb27B4D6eF76d3E7928Fce28d",
+      "name": "Test USDT",
+      "symbol": "TUSDT",
+      "decimals": 6
+    },
+    "APPLUSD": {
+      "proxyAddress": "0x92BBB9e3e6Db911C76D67e1da78De0E971748B5c",
+      "implementationAddress": "0xe7BE0B2B7ED3F5a96698e6F3E6444a0d00f9E12b",
+      "name": "Apple USD",
+      "symbol": "APPLUSD",
+      "decimals": 0,
+      "lastUpgrade": "2025-07-29T09:08:47.168Z"
+    }
+  },
+  "chainlink": {
+    "priceFeedAddress": "0x298619601ebCd58d0b526963Deb2365B485Edc74",
+    "priceFeedType": "AAVE/USD",
+    "network": "BNB Chain Testnet"
+  },
+  "features": {
+    "chainlinkPriceOracle": true,
+    "fallbackPriceMechanism": true,
+    "upgradeableProxy": true,
+    "uupsPattern": true
+  },
+  "verification": {
+    "bscscanLinks": {
+      "testUSDT": "https://testnet.bscscan.com/address/0x065D53A41247690fb27B4D6eF76d3E7928Fce28d",
+      "applusdProxy": "https://testnet.bscscan.com/address/0x92BBB9e3e6Db911C76D67e1da78De0E971748B5c",
+      "applusdImplementation": "https://testnet.bscscan.com/address/0xe7BE0B2B7ED3F5a96698e6F3E6444a0d00f9E12b"
+    },
+    "status": "verified",
+    "timestamp": "2025-07-29T07:02:47.728Z",
+    "newImplementationVerified": true,
+    "newImplementationAddress": "0xe7BE0B2B7ED3F5a96698e6F3E6444a0d00f9E12b",
+    "verificationTimestamp": "2025-07-29T09:09:20.164Z"
+  },
+  "upgrade": {
+    "previousImplementation": "0xe7BE0B2B7ED3F5a96698e6F3E6444a0d00f9E12b",
+    "newImplementation": "0xe7BE0B2B7ED3F5a96698e6F3E6444a0d00f9E12b",
+    "upgradeTimestamp": "2025-07-29T09:08:47.168Z",
+    "upgradeBy": "0x09cC52DC70fEB739d1c91Fc07ef9983B7a08D13f",
+    "changes": [
+      "将APPLUSD decimals从18位改为0位（整数代币）",
+      "调整价格计算逻辑以适配0位小数",
+      "保持所有现有状态和用户余额"
+    ]
+  }
+}
