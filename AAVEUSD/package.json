@@ -23,18 +23,28 @@
     "verify:bsc-testnet": "hardhat verify --network bscTestnet",
     "verify:bsc-mainnet": "hardhat verify --network bscMainnet"
   },
-  "keywords": ["ethereum", "hardhat", "chainlink", "aave", "defi", "upgradeable", "oracle", "bsc"],
+  "keywords": [
+    "ethereum",
+    "hardhat",
+    "chainlink",
+    "aave",
+    "defi",
+    "upgradeable",
+    "oracle",
+    "bsc"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "hardhat": "^2.22.18",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.1.0",
     "@openzeppelin/hardhat-upgrades": "^3.6.0",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.18"
   },
   "dependencies": {
+    "@chainlink/contracts": "^1.2.0",
     "@openzeppelin/contracts": "^5.1.0",
-    "@openzeppelin/contracts-upgradeable": "^5.1.0",
-    "@chainlink/contracts": "^1.2.0"
+    "@openzeppelin/contracts-upgradeable": "^5.1.0"
   }
 }

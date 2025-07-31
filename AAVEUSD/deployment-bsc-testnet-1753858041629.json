@@ -14,13 +14,13 @@
     "aaveusd": {
       "name": "AAVEUSD",
       "proxyAddress": "0x33Aa7D36b96F77CDef1cF07bfC33a210e7309de4",
-      "implementationAddress": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+      "implementationAddress": "0x9b8f892db9f3f06473ef524d776201073fd94912",
       "symbol": "AAVEUSD",
       "decimals": 0,
       "initialSupply": "1000000",
       "implementations": [
         {
-          "address": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+          "address": "0x9b8f892db9f3f06473ef524d776201073fd94912",
           "version": 2,
           "deployedAt": "2025-07-30T07:30:45.017Z",
           "changes": [
@@ -33,7 +33,7 @@
       ],
       "lastUpgrade": {
         "from": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
-        "to": "0xa67Ebfa5E88633b858fFF6DA5ba9CcE5E0A43aA6",
+        "to": "0x9b8f892db9f3f06473ef524d776201073fd94912",
         "timestamp": "2025-07-30T07:30:45.017Z"
       }
     }
