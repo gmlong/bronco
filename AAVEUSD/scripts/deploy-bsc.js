@@ -125,13 +125,13 @@ async function main() {
     
     if (currentPrice > 0) {
       // 测试价格计算功能
-      const testUSDTAmount = 100 * 10**6; // $100 USDT (6位小数)
+      const testUSDTAmount = 100 * 10**18; // $100 USDT (18位小数)
       const calculatedTokens = await aaveusd.getTokenAmountForUSDT(testUSDTAmount);
       console.log(`$100 USDT 可购买 ${calculatedTokens.toString()} AAVEUSD`);
       
       const testTokenAmount = 10; // 10 AAVEUSD（整数）
       const calculatedUSDT = await aaveusd.getUSDTAmountForTokens(testTokenAmount);
-      console.log(`10 AAVEUSD 可赎回 ${ethers.formatUnits(calculatedUSDT, 6)} USDT`);
+      console.log(`10 AAVEUSD 可赎回 ${ethers.formatUnits(calculatedUSDT, 18)} USDT`);
     } else {
       console.log("⚠️  Chainlink价格为0或负数");
     }

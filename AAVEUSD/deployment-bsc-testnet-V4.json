@@ -1,0 +1,46 @@
+{
+  "network": "BNB Chain Testnet",
+  "chainId": 97,
+  "deployer": "0x755EBa3594FCd18C1b09B78B8b0B2Ebe7CA3250a",
+  "deployerBalance": "0.171371144",
+  "timestamp": "2025-08-01T05:15:51.768Z",
+  "contracts": {
+    "testUSDT": {
+      "name": "TestUSDT",
+      "address": "0x33eF4194D6c97A87153A12b5d6cDFA0f63b2D17F",
+      "symbol": "USDT",
+      "decimals": 6
+    },
+    "aaveusd": {
+      "name": "AAVEUSD",
+      "proxyAddress": "0x73986Fe90e93E6b6296c3E128052C060C06e5049",
+      "implementationAddress": "0xFCD48E56eC8d0A29b729d1B66BE0939d88488Df8",
+      "symbol": "AAVEUSD",
+      "decimals": 0,
+      "initialSupply": "1000000"
+    }
+  },
+  "chainlink": {
+    "priceFeedAddress": "0x298619601ebCd58d0b526963Deb2365B485Edc74",
+    "priceFeedType": "AAVE/USD",
+    "network": "BNB Chain Testnet",
+    "simplified": true
+  },
+  "features": {
+    "chainlinkPriceOracle": true,
+    "simplifiedOracle": true,
+    "buyRedeemFunctionality": true,
+    "upgradeableProxy": true,
+    "uupsPattern": true,
+    "zeroDecimals": true
+  },
+  "links": {
+    "testUSDT": "https://testnet.bscscan.com/address/0x33eF4194D6c97A87153A12b5d6cDFA0f63b2D17F",
+    "proxyContract": "https://testnet.bscscan.com/address/0x73986Fe90e93E6b6296c3E128052C060C06e5049",
+    "implementationContract": "https://testnet.bscscan.com/address/0xFCD48E56eC8d0A29b729d1B66BE0939d88488Df8"
+  },
+  "verification": {
+    "status": "verified",
+    "timestamp": "2025-08-01T05:16:31.196Z"
+  }
+}
